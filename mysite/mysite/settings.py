@@ -38,7 +38,16 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'mysite',
+    'shopcart',
+    'django_nose',
 )
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+NOSE_ARGS = [
+    '--cover-erase',
+    '--cover-package=mysite',
+]
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -77,6 +86,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+MEDIA_ROOT= os.path.join(BASE_DIR, 'img/')
+
+MEDIA_URL = '../shopcart/static/img/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/

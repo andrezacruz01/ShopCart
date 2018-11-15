@@ -1,6 +1,8 @@
 from django.conf.urls import url
-from . import views
+from shopcart import views
+from shopcart.views import RegisterCreditcardView
 
 urlpatterns = [
-        url('', views.index, name='index'),
+        url(r'^$', views.index, name='index'),
+        url(r'^cart/$', RegisterCreditcardView.as_view(), name='cart'),
     ]

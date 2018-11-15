@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="col-lg-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<strong>Buy</strong>
+		</div>
+		<br>
+		<form class="form-signin" role="form" action="/cart/" method="post">
+			{% csrf_token %}
+
+			<div class="form-signin-heading">Insert your credit card information:</div>
+			<br>
+
+			<div class="form-signin-heading">Name:</div>
+			<input type="text" id="name" name="name" class="form-control" placeholder="Insert Name" required autofocus>
+
+			<div class="form-signin-heading">Number:</div>
+			<input type="text" id="number" name="number" class="form-control" placeholder="Insert Number" required autofocus>
+
+			<div class="form-signin-heading">Date:</div>
+			<input type="date" id="date" name="date" class="form-control" required autofocus>
+
+			<div class="form-signin-heading">Safety Key:</div>
+			<input type="text" id="safety_key" name="safety_key" class="form-control" placeholder="Insert Safety Key" required autofocus>
+
+			<br>
+
+			<button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
+        		Register
+    		</button>
+
+			{% if form.errors %}
+			<div class="alert alert-danger">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true" onClick="clickAlert()">
+					&times;
+				</button>
+				{{form.non_field_errors}}
+			</div>
+			{% endif %}
+		</form>
+	</div>
+</div>
+<script>
+    function clickAlert() {
+	alert("Your credit card information was saved! Products will be available on store");}
+</script>
+{% endblock %}
