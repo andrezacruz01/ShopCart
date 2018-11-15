@@ -39,15 +39,7 @@ INSTALLED_APPS = (
     'south',
     'mysite',
     'shopcart',
-    'django_nose',
 )
-
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
-NOSE_ARGS = [
-    '--cover-erase',
-    '--cover-package=mysite',
-]
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
